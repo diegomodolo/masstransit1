@@ -1,0 +1,11 @@
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\bin\Debug\net7.0\Contracts.deps.json
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\bin\Debug\net7.0\Contracts.dll
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\bin\Debug\net7.0\Contracts.pdb
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\obj\Debug\net7.0\Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\obj\Debug\net7.0\Contracts.AssemblyInfoInputs.cache
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\obj\Debug\net7.0\Contracts.AssemblyInfo.cs
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\obj\Debug\net7.0\Contracts.csproj.CoreCompileInputs.cache
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\obj\Debug\net7.0\Contracts.dll
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\obj\Debug\net7.0\refint\Contracts.dll
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\obj\Debug\net7.0\Contracts.pdb
+D:\Src\Milan\Asynchronous Request Response Pattern with MassTransit\after\ContentPlatform\Contracts\obj\Debug\net7.0\ref\Contracts.dll
