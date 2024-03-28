@@ -1,24 +1,76 @@
 version: '3.4'
 
 services:
+  #Updated
   newsletter-api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_URLS=http://+:80
+      - Database=Server=newsletter-db;Database=Newsletter;User=sa;Password=Strong_password_123!;TrustServerCertificate=True
+      - Host=amqp://newsletter-mq:5672
+      - Username=guest
+      - Password=guest
     ports:
-      - "80"
-      - "5001:443"
+      - "6001:80"
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - newsletter-api-secrets-data:/home/.microsoft/usersecrets:rw
+      - newsletter-api-https-data:/home/.aspnet/https:rw
 
+  #Updated
   newsletter-reporting-api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_URLS=http://+:80
+      - Database=Server=newsletter-db;Database=Newsletter.Reporting;User=sa;Password=Strong_password_123!;TrustServerCertificate=True
+      - Host=amqp://newsletter-mq:5672
+      - Username=guest
+      - Password=guest
     ports:
-      - "80"
-      - "6001:443"
+      - "6002:80"
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - newsletter-reporting-api-secrets-data:/home/.microsoft/usersecrets:rw
+      - newsletter-reporting-api-https-data:/home/.aspnet/https:rw
+
+  #Added
+  newsletter-db:
+    volumes:
+      - newsletter-db-data:/home/var/opt/mssql/data:rw
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Strong_password_123!"
+
+  #Added
+  newsletter-mq:
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    volumes:
+      - newsletter-mq-data:/home/var/lib/rabbitmq:rw
+
+#Added
+volumes:
+
+  newsletter-db-data:
+    name: newsletter-db-data
+
+  newsletter-mq-data:
+    name: newsletter-mq-data
+  
+  newsletter-reporting-api-secrets-data:
+    name: newsletter-reporting-api-secrets-data
+  
+  newsletter-reporting-api-https-data:
+    name: newsletter-reporting-api-https-data
+
+  newsletter-api-secrets-data:
+    name: newsletter-api-secrets-data
+  
+  newsletter-api-https-data:
+    name: newsletter-api-https-data
+    
